@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AccredWorks · AW PDF Editor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <!-- Same layout as AW Signer: a dark sidebar, and on the right the current section. style.css is
+       AW Signer's stylesheet, copied unchanged; editor.css adds only the viewer parts. -->
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="brand-mark.png" alt="" class="brand-mark">
+        <div>
+          <div class="brand-company">ACCREDWORKS</div>
+          <div class="brand-name">AW PDF Editor</div>
+        </div>
+      </div>
+      <nav id="nav"></nav>
+      <div class="sidebar-spacer"></div>
+      <button id="signer-footer" class="signer-footer" type="button"></button>
+      <div class="version"></div>
+    </aside>
+    <div class="main" id="main"></div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

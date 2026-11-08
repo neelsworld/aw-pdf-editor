@@ -1,0 +1,18 @@
+# The worker's packages, pinned to the versions tested on the Mac (worker/requirements.txt and what they
+# pull in). Downloaded as Windows wheels by build-windows.sh; --no-deps, so every package is listed.
+pymupdf==1.28.2
+pillow==13.0.0
+markdown==3.11.2
+pdf2docx==0.5.13
+python-docx==1.2.0
+fonttools==4.68.0
+numpy==2.5.4
+opencv-python-headless==5.0.0.93
+fire==0.7.1
+termcolor==3.3.0
+lxml==6.1.3
+openpyxl==3.1.5
+et_xmlfile==2.0.0
+python-pptx==1.0.2
+xlsxwriter==3.3.1
+typing_extensions==4.16.0

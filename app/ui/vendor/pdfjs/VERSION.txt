@@ -1,0 +1,1 @@
+pdfjs-dist 4.10.38 from https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-4.10.38.tgz (Apache-2.0). Files copied unchanged from build/.

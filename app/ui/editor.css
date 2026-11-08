@@ -1,0 +1,277 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later
+   Editor-only parts. Everything shared with AW Signer (tokens, sidebar, cards, buttons, banners)
+   comes from style.css unchanged, so the two apps look the same. Only tokens are used here. */
+
+/* Sidebar footer: AW Signer link, in the spot where AW Signer shows its token status. */
+.signer-footer {
+  display: flex; align-items: center; gap: 10px; margin: 0 10px 10px; padding: 10px 12px;
+  border: 0; border-radius: 8px; background: rgba(255, 255, 255, 0.07); color: #fff; text-align: left;
+}
+.signer-footer:hover { background: rgba(255, 255, 255, 0.12); }
+.signer-footer svg { width: 22px; height: 22px; color: var(--accent-on-dark); flex: none; }
+.signer-footer .title { font-size: var(--sm); font-weight: 500; }
+.signer-footer .sub { font-size: var(--xs); color: var(--muted-on-dark); }
+.nav-item:disabled { opacity: 0.4; cursor: default; }
+.nav-item:disabled:hover { background: transparent; }
+
+/* Home: the AW Signer card */
+.signer-card { display: flex; align-items: center; gap: 14px; }
+.signer-card > svg { width: 30px; height: 30px; flex: none; }
+
+/* Document view: toolbar on top, thumbnails on the left, pages in the middle. */
+.doc { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.toolbar {
+  flex: none; display: flex; align-items: center; gap: 8px; padding: 10px 16px;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.toolbar .doc-name { font-size: var(--md); font-weight: 600; max-width: 260px; min-width: 60px; }
+.toolbar .sm { white-space: nowrap; }
+.toolbar .divider { width: 1px; height: 22px; background: var(--border); margin: 0 4px; }
+.toolbar .page-field { width: 52px; text-align: center; }
+.toolbar .zoom-label { min-width: 46px; text-align: center; font-size: var(--sm); color: var(--text-muted); }
+.btn.icon-only { padding: 0 8px; }
+.doc-body { flex: 1; display: flex; min-height: 0; }
+.thumbs {
+  width: 168px; flex: none; overflow-y: auto; padding: 12px 0;
+  background: var(--surface-subtle); border-right: 1px solid var(--border);
+}
+.thumb {
+  display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%;
+  padding: 8px 0; border: 0; background: transparent;
+}
+.thumb canvas { display: block; background: #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18); border: 2px solid transparent; border-radius: 2px; }
+.thumb.selected canvas { border-color: var(--primary); }
+.thumb .num { font-size: var(--xs); color: var(--text-muted); }
+.thumb.selected .num { color: var(--ink); font-weight: 600; }
+.pages { flex: 1; overflow: auto; background: var(--canvas); }
+.pages-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 24px; min-width: min-content; }
+.pages .page-wrap { cursor: default; }
+.page-slot { background: #fff; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18); }
+
+.statusbar {
+  flex: none; display: flex; align-items: center; gap: 16px; padding: 6px 16px;
+  background: var(--surface); border-top: 1px solid var(--border); font-size: var(--xs); color: var(--text-muted);
+}
+
+/* Drop target over the whole main area */
+.main.drop { box-shadow: inset 0 0 0 3px var(--primary); background: var(--surface-selected); }
+
+.sheet.narrow { width: min(560px, 92vw); }
+.sheet:not(.narrow) { width: min(680px, 92vw); }
+.sheet h2 + p { margin: -4px 0 0; }
+.sheet .actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+.sheet-backdrop.busy { z-index: 20; }
+.sheet-backdrop:not(.busy) { z-index: 25; } /* a question (e.g. a password) asked while working stays on top */
+.export-cards { display: grid; grid-template-columns: repeat(4, 1fr); }
+.export-cards .scope-card { min-height: 70px; }
+.sheet-backdrop.busy .sheet { gap: 12px; }
+.sheet .scope-card { min-height: 0; }
+.split-cards .scope-card { min-height: 74px; }
+.split-results { max-height: 300px; overflow-y: auto; }
+.crop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.crop-grid input { width: 100%; }
+
+/* Home: four tool cards in one row, like Acrobat's tools */
+.entry-cards.tools { display: grid; grid-template-columns: repeat(3, 1fr); }
+.tool-card { min-height: 150px; padding: 12px; color: inherit; font: inherit; cursor: pointer; text-align: center; }
+.tool-card:hover { border-color: var(--border-strong); }
+.tool-card svg { width: 28px; height: 30px; }
+
+/* Sidebar: long document names */
+.nav-item span.ellipsis { min-width: 0; }
+
+/* Document: the action bar under the toolbar */
+.toolbar .doc-name .dirty-dot { color: var(--warning); font-weight: 700; }
+.actionbar {
+  flex: none; display: flex; align-items: center; gap: 6px; padding: 6px 16px; flex-wrap: wrap;
+  background: var(--surface-subtle); border-bottom: 1px solid var(--border);
+}
+.actionbar .divider { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
+.actionbar .btn { min-height: 30px; }
+
+/* Organise: page grid */
+.organise { flex: 1; overflow-y: auto; background: var(--canvas); outline: none; }
+.grid { position: relative; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 22px; padding: 24px; user-select: none; }
+.tile {
+  display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px; width: 178px;
+  border-radius: 10px; border: 1.5px solid transparent; cursor: grab; touch-action: none;
+}
+.tile:hover { background: var(--surface-subtle); }
+.tile.selected { background: var(--surface-selected); border-color: var(--primary); }
+.tile.dragging { opacity: 0.45; }
+.tile-box { width: 150px; height: 150px; display: grid; place-items: center; }
+.tile-page { background: #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22); }
+.tile-page canvas { display: block; }
+.tile .num { font-size: var(--xs); color: var(--text-muted); }
+.tile.selected .num { color: var(--ink); font-weight: 600; }
+.drop-marker { position: absolute; width: 3px; border-radius: 2px; background: var(--primary); pointer-events: none; }
+
+/* Toast: short confirmations at the bottom */
+.toast {
+  position: fixed; left: 50%; bottom: 46px; transform: translateX(-50%); z-index: 30;
+  display: flex; align-items: center; gap: 10px; max-width: min(720px, 90vw); padding: 10px 14px;
+  border-radius: 10px; background: var(--work-surface); color: #fff; font-size: var(--sm);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.toast svg { width: 16px; height: 16px; color: var(--success-on-dark); flex: none; }
+.toast.bad svg { color: var(--danger-on-dark); }
+.toast .link { color: var(--accent-on-dark); }
+
+/* ---------- Mark up (Phase 3) ---------- */
+.page-slot { position: relative; }
+.page-canvas canvas { display: block; }
+.markbar .tool-on, .actionbar .tool-on { background: var(--surface-selected); border-color: var(--primary); }
+.markbar select { min-height: 30px; padding: 2px 6px; }
+.swatches { display: inline-flex; gap: 4px; }
+.swatch { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--border-strong); padding: 0; }
+.swatch.on { box-shadow: 0 0 0 2px var(--ink); }
+
+/* The layer over each page. In Read view only form fields take clicks. */
+.mk-layer { position: absolute; inset: 0; pointer-events: none; }
+.mk-layer[class*="tool-"] { pointer-events: auto; }
+.mk-layer.tool-select { cursor: default; }
+.mk-layer.tool-highlight, .mk-layer.tool-underline, .mk-layer.tool-strikeout { cursor: text; }
+.mk-layer.tool-ink, .mk-layer.tool-rect, .mk-layer.tool-ellipse, .mk-layer.tool-line, .mk-layer.tool-arrow,
+.mk-layer.tool-text, .mk-layer.tool-note, .mk-layer.tool-stamp, .mk-layer.tool-image, .mk-layer.tool-signature { cursor: crosshair; }
+.mk-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.mk-layer.tool-select .mk-svg .mk-hit { pointer-events: visiblePainted; cursor: move; }
+.mk-svg line.mk-hit, .mk-svg polyline.mk-hit { stroke-linecap: round; }
+.mk-el { position: absolute; box-sizing: border-box; }
+.mk-layer.tool-select .mk-el.mk-hit { cursor: move; }
+.mk-layer:not(.tool-select) .mk-el.mk-hit { pointer-events: none; }
+.mk-note { display: grid; place-items: center; background: #fff7cc; border-radius: 4px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+.mk-note svg { width: 70%; height: 70%; }
+.mk-text { font-family: -apple-system, "Segoe UI", sans-serif; line-height: 1.25; white-space: pre-wrap; overflow: visible; }
+.mk-stamp { display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2.5px solid; border-radius: 6px;
+  font-family: -apple-system, "Segoe UI", sans-serif; line-height: 1.1; text-align: center; background: rgba(255, 255, 255, 0.55); }
+.mk-stamp .t { font-weight: 700; letter-spacing: 0.5px; }
+.mk-image { object-fit: fill; user-select: none; }
+.mk-watermark { left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-weight: 700; white-space: nowrap;
+  font-family: -apple-system, "Segoe UI", sans-serif; pointer-events: none; }
+.mk-hf { color: #333; white-space: nowrap; overflow: hidden; font-family: -apple-system, "Segoe UI", sans-serif; pointer-events: none; }
+.mk-selected { outline: 1.5px dashed var(--focus); outline-offset: 0; pointer-events: none; }
+.mk-handle { position: absolute; right: -6px; bottom: -6px; width: 11px; height: 11px; background: #fff; border: 1.5px solid #171717;
+  border-radius: 2px; cursor: nwse-resize; pointer-events: auto; }
+.mk-preview { pointer-events: none; }
+
+/* Form fields: light blue boxes, like other PDF readers, and usable in Read and Mark up views */
+.mk-field { pointer-events: auto; border: 1px solid rgba(29, 91, 191, 0.55); background: #e9f0fb; color: #111;
+  border-radius: 2px; padding: 0 3px; min-height: 0; font-family: -apple-system, "Segoe UI", sans-serif; }
+.mk-field:focus { outline: 2px solid var(--focus); background: #fff; }
+.mk-field-checkbox, .mk-field-radiobutton { margin: 0; padding: 0; accent-color: #1d5bbf; }
+
+/* Comments list beside the pages */
+.comments { width: 260px; flex: none; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px;
+  background: var(--surface); border-left: 1px solid var(--border); }
+.comment-row { text-align: left; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface);
+  display: flex; flex-direction: column; gap: 2px; }
+.comment-row:hover { background: var(--surface-subtle); }
+.comment-row.on { border-color: var(--primary); background: var(--surface-selected); }
+
+.hf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.hf-grid input { width: 100%; }
+
+/* Toolbar fits the window: the view switch never wraps, and button labels hide when space runs out. */
+.toolbar { flex-wrap: nowrap; min-width: 0; }
+.toolbar .segmented button { white-space: nowrap; padding: 4px 10px; }
+.toolbar .doc-name { max-width: 200px; }
+@media (max-width: 1500px) { .toolbar .lbl { display: none; } }
+.markbar { flex-wrap: nowrap; overflow-x: auto; }
+
+/* Tabs: one per open document, above the toolbar */
+.tabbar {
+  flex: none; display: flex; align-items: flex-end; gap: 2px; padding: 6px 10px 0; overflow-x: auto;
+  background: var(--surface-subtle); border-bottom: 1px solid var(--border);
+}
+.tab {
+  display: flex; align-items: center; gap: 6px; min-width: 120px; max-width: 220px; height: 32px; padding: 0 6px 0 10px;
+  border: 1px solid transparent; border-bottom: 0; border-radius: 8px 8px 0 0; color: var(--text-muted);
+  font-size: var(--sm); cursor: pointer; user-select: none;
+}
+.tab:hover { background: var(--surface); color: var(--ink); }
+.tab.on { background: var(--surface); color: var(--ink); border-color: var(--border); font-weight: 600;
+  margin-bottom: -1px; height: 33px; box-shadow: inset 0 2px 0 var(--primary); }
+.tab > svg { width: 14px; height: 14px; flex: none; }
+.tab-name { flex: 1; }
+.tab .dirty-dot { color: var(--warning); font-weight: 700; }
+.tab-close, .tab-new { display: inline-grid; place-items: center; border: 0; background: transparent; color: var(--text-muted);
+  border-radius: 6px; padding: 0; flex: none; }
+.tab-close { width: 20px; height: 20px; }
+.tab-close svg { width: 12px; height: 12px; }
+.tab-close:hover, .tab-new:hover { background: var(--surface-subtle); color: var(--ink); }
+.tab.on .tab-close:hover { background: var(--border); }
+.tab-new { width: 28px; height: 28px; margin: 0 0 3px 4px; }
+.tab-new svg { width: 15px; height: 15px; }
+
+/* ---------- Phase 4: redaction, edit text ---------- */
+/* A redaction waiting for Save: dark and hatched, so it can't be mistaken for a normal box. */
+.mk-redact { background: repeating-linear-gradient(45deg, rgba(23, 23, 23, 0.82) 0 6px, rgba(23, 23, 23, 0.68) 6px 12px);
+  outline: 1.5px solid var(--danger); }
+.mk-edit { background: #fff; white-space: nowrap; overflow: visible; line-height: 1; display: flex; align-items: center;
+  box-shadow: 0 0 0 1px rgba(29, 91, 191, 0.5); }
+.mk-line { pointer-events: auto; cursor: text; border-radius: 2px; }
+.mk-line:hover { background: rgba(29, 91, 191, 0.12); box-shadow: 0 0 0 1px rgba(29, 91, 191, 0.6); }
+
+/* ---------- Reading (reader.js, READER-PLAN.md R1) ---------- */
+.side-panel { display: flex; flex-direction: column; flex: none; min-height: 0; background: var(--surface-subtle); border-right: 1px solid var(--border); }
+.side-panel .thumbs { flex: 1; border-right: 0; }
+.rd-panel-tabs { margin: 10px 10px 0; }
+.rd-panel-tabs button { flex: 1; font-size: var(--xs); }
+.pages.read .page-slot { overflow: hidden; }
+.pages-inner.two { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; align-items: start; }
+.turn-box { position: relative; flex: none; }
+.turn-box > .page-slot { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+
+/* Selectable text over the page picture: pdf.js's text layer (the same rules as its viewer). */
+.rd-layers { position: absolute; }
+.textLayer { position: absolute; text-align: initial; inset: 0; overflow: clip; opacity: 1; line-height: 1;
+  -webkit-text-size-adjust: none; text-size-adjust: none; forced-color-adjust: none; transform-origin: 0 0; caret-color: CanvasText; z-index: 0; }
+.textLayer :is(span, br) { color: transparent; position: absolute; white-space: pre; cursor: text; transform-origin: 0% 0%; }
+.textLayer > :not(.markedContent), .textLayer .markedContent span:not(.markedContent) { z-index: 1; }
+.textLayer span.markedContent { top: 0; height: 0; }
+.textLayer ::selection { background: rgba(0, 92, 230, 0.28); }
+.textLayer br::selection { background: transparent; }
+.textLayer .endOfContent { display: block; position: absolute; inset: 100% 0 0; z-index: 0; cursor: default; user-select: none; }
+.textLayer[data-main-rotation="90"] { transform: rotate(90deg) translateY(-100%); }
+.textLayer[data-main-rotation="180"] { transform: rotate(180deg) translate(-100%, -100%); }
+.textLayer[data-main-rotation="270"] { transform: rotate(270deg) translateX(-100%); }
+.rd-link { position: absolute; z-index: 2; cursor: pointer; border-radius: 2px; }
+.rd-link:hover { background: rgba(0, 92, 230, 0.12); outline: 1px solid rgba(0, 92, 230, 0.35); }
+
+/* Find while reading */
+.doc-body { position: relative; }
+.rd-findbar { position: absolute; top: 10px; right: 22px; z-index: 5; display: flex; align-items: center; gap: 6px; padding: 6px 8px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18); }
+.rd-findbar > svg { width: 16px; height: 16px; color: var(--text-muted); }
+.rd-findbar input { width: 220px; }
+.rd-count { min-width: 64px; text-align: right; white-space: nowrap; }
+.rd-find { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.rd-hit { position: absolute; background: rgba(255, 200, 0, 0.42); border-radius: 2px; }
+.rd-hit.cur { background: rgba(255, 120, 0, 0.55); outline: 2px solid rgba(230, 90, 0, 0.9); }
+
+/* Bookmarks panel */
+.rd-empty { padding: 16px 12px; }
+.rd-outline { padding: 6px 0; }
+.rd-group { padding: 8px 12px 4px; font-weight: 600; }
+.rd-bm { display: block; width: 100%; padding: 6px 10px; border: 0; background: transparent; text-align: left; font-size: var(--sm); color: var(--ink); }
+.rd-bm:hover { background: var(--surface-selected); }
+
+/* View menu */
+.rd-menu { position: fixed; z-index: 50; min-width: 260px; padding: 6px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22); }
+.rd-menu-item { display: flex; align-items: center; gap: 8px; width: 100%; padding: 7px 10px; border: 0; border-radius: 6px;
+  background: transparent; text-align: left; font-size: var(--sm); color: var(--ink); }
+.rd-menu-item:hover, .rd-menu-item:focus-visible { background: var(--surface-selected); }
+.rd-check { width: 14px; color: var(--primary); font-weight: 700; }
+.rd-sep { height: 1px; margin: 5px 4px; background: var(--border); }
+
+/* Night reading: the page picture is shown light on dark. Only in Read view, and the file is not changed. */
+[data-night="on"] .pages.read .page-canvas canvas { filter: invert(1) hue-rotate(180deg); }
+[data-night="on"] .pages.read .page-slot { background: #111; }
+
+/* Presentation */
+.rd-present { position: fixed; inset: 0; z-index: 100; background: #000; display: flex; align-items: center; justify-content: center; outline: none; cursor: none; }
+.rd-present canvas { display: block; }
+.rd-present-hint { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); padding: 6px 12px; border-radius: 6px;
+  background: rgba(255, 255, 255, 0.14); color: #ddd; transition: opacity 0.6s; }
+.rd-present-hint.fade { opacity: 0; }

@@ -1,0 +1,10 @@
+# Pinned for reproducible builds. Review and update deliberately, with a licence check.
+# PyMuPDF 1.28.x is chosen over 2.0 on purpose: 2.0 imports an onnxruntime layout model
+# (+~130 MB, slower start) and has no Intel Mac wheel.
+pymupdf==1.28.2          # AGPL-3.0: the PDF engine
+pillow==13.0.0           # MIT-CMU: images in and out
+markdown==3.11.2         # BSD-3-Clause: Markdown to PDF
+pdf2docx==0.5.13         # MIT: PDF to Word (pulls python-docx MIT, fonttools MIT, numpy BSD,
+                         #      opencv-python-headless Apache-2.0, fire Apache-2.0, termcolor MIT)
+openpyxl==3.1.5          # MIT: PDF to Excel
+python-pptx==1.0.2       # MIT: PDF to PowerPoint (pulls lxml BSD-3, XlsxWriter BSD-2)

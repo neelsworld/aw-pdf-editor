@@ -1,0 +1,12 @@
+# Build output and local environments
+app/src-tauri/target/
+app/src-tauri/gen/
+worker/.venv/
+worker/build/
+worker/dist/
+dist/
+__pycache__/
+*.pyc
+.DS_Store
+# Test PDFs with real data never go in the public repo
+test-pdfs-private/
