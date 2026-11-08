@@ -42,7 +42,7 @@ The `AW-NOTARY` profile exists on Neel's Mac (the same one AW Signer uses), but 
 it, so **Neel runs the notarised build in his own Terminal**, as for AW Signer. First notarised on
 2026-11-05 (both submissions Accepted; `spctl`: "Notarized Developer ID"). An Intel build needs to be made on an Intel Mac, or as a universal build later.
 
-## 3. Source code: public repository 🔒
+## 3. Source code: public repository (done 2026-11-08: github.com/neelsworld/aw-pdf-editor, tag v0.1.1)
 
 AGPL requires the exact source of each release to be available.
 
