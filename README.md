@@ -7,6 +7,8 @@ signature with a DSC USB token, it hands the file to [AW Signer](https://accredw
 **Download:** [accredworks.com/pdf-editor](https://accredworks.com/pdf-editor) (Mac DMG, Windows installer)
 or the [Microsoft Store](https://apps.microsoft.com/detail/9MW1KVP16BPF).
 
+<a href="https://apps.microsoft.com/detail/9mw1kvp16bpf?referrer=appbadge&amp;mode=direct"><img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Get AW PDF Editor from the Microsoft Store" width="200"></a>
+
 It opens, reads and organises PDFs (reorder, rotate, delete, insert, crop, merge, split, extract,
 password-protect, with undo); creates PDFs from images, Office and text files; exports to Word, Excel,
 PowerPoint, images, text, HTML and Markdown; marks up (highlights, notes, text, drawings, stamps,
