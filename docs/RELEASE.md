@@ -52,12 +52,12 @@ AGPL requires the exact source of each release to be available.
 3. Tag the release (`v<version>`) and push the tag.
 4. The site's download page links to that tag's source.
 
-## 4. Host the installers 🔒 (0.1.0 done 2026-11-05)
+## 4. Host the installers 🔒 (0.1.0 done 2026-11-05; 0.1.1 done 2026-11-08)
 
 Upload the DMG and the setup .exe next to AW Signer's (downloads.accredworks.com), e.g. under
 `aw-pdf-editor/macos/` and `aw-pdf-editor/windows/`. Publish SHA-256 sums with them. Upload with `aws s3 cp <file> s3://accredworks-aw-signer-downloads-<account>/aw-pdf-editor/<os>/ --region ap-south-1 --content-type …` (DMG: `application/x-apple-diskimage`, exe: `application/vnd.microsoft.portable-executable`) after `aws login --region ap-south-1`. Old versions stay, so shared links keep working.
 
-## 5. Website 🔒 (0.1.0 live 2026-11-05, site commit b777c82)
+## 5. Website 🔒 (0.1.0 live 2026-11-05, site commit b777c82; 0.1.1 live 2026-11-08, site commit 82ca0ec)
 
 The live page is `01_AW_Signer/site/pdf-editor.html` (the draft in `docs/site-draft/` is superseded). For a new
 release, update its two download links, sizes, version and SHA-256 sums, then commit in the site repo
